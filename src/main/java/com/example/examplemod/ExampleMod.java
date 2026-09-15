@@ -6,7 +6,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +18,8 @@ public class ExampleMod implements ClientModInitializer {
 
  public static KeyMapping openGuiKey;
 
- // Начиная с 1.21.9 категорию клавиши нужно регистрировать отдельно, а не просто передавать строку
  private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
-   ResourceLocation.fromNamespaceAndPath(MOD_ID, "main")
+   Identifier.fromNamespaceAndPath(MOD_ID, "main")
  );
 
  @Override
