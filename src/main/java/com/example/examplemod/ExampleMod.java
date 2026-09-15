@@ -1,10 +1,12 @@
 package com.example.examplemod;
 
 import com.example.examplemod.gui.ClickGuiScreen;
+import com.example.examplemod.gui.Watermark;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
@@ -40,5 +42,8 @@ public class ExampleMod implements ClientModInitializer {
     }
    }
   });
+
+  // Рисуем ватермарку каждый кадр поверх игры
+  HudRenderCallback.EVENT.register((guiGraphics, tickDelta) -> Watermark.render(guiGraphics));
  }
 }
