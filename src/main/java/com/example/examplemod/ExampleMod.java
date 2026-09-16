@@ -2,6 +2,7 @@ package com.example.examplemod;
 
 import com.example.examplemod.gui.ClickGuiScreen;
 import com.example.examplemod.gui.Watermark;
+import com.example.examplemod.module.TargetHudModule;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -43,7 +44,8 @@ public class ExampleMod implements ClientModInitializer {
    }
   });
 
-  // Рисуем ватермарку каждый кадр поверх игры
   HudRenderCallback.EVENT.register((guiGraphics, tickDelta) -> Watermark.render(guiGraphics));
+
+  TargetHudModule.register();
  }
 }
